@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3498db">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="balance-section">
+            <div class="balance-card"><h3>Current Balance</h3><p class="balance-amount" id="balance">₹0.00</p></div>
+            <div class="balance-card"><h3>This Month Spent</h3><p class="spent-amount" id="monthTotal">₹0.00</p></div>
+            <div class="balance-card"><h3>Total Spent</h3><p class="spent-amount" id="totalSpent">₹0.00</p></div>
+            <div class="balance-card"><h3>Total Credited</h3><p class="credit-amount" id="totalCredited">₹0.00</p></div>
+        </div>
+        <div class="sections">
+            <div class="section"><h2>Add Credit</h2><form id="creditForm"><input type="number" step="0.01" id="creditAmount" placeholder="Amount" required><input type="text" id="creditNote" placeholder="Note"><button type="submit">Add</button></form></div>
+            <div class="section"><h2>Add Expense</h2><form id="expenseForm"><input type="date" id="expenseDate" required><input type="number" step="0.01" id="expenseAmount" placeholder="Amount" required><input type="text" id="expenseDesc" placeholder="Description"><select id="expenseCategory" required></select><button type="submit">Add</button></form></div>
+            <div class="section"><h2>Categories</h2><form id="categoryForm"><input type="text" id="categoryName" placeholder="New category"><button type="submit">Add</button></form><div class="categories-list" id="categoriesList"></div></div>
+        </div>
+        <div class="section full-width"><h2>Monthly Trend</h2><canvas id="trendChart" height="100"></canvas></div>
+        <div class="section full-width"><h2>By Category</h2><select id="statMonth"></select><div class="by-category" id="byCategory"></div><canvas id="catChart" height="80"></canvas></div>
+        <div class="section full-width"><h2>All Expenses</h2><input type="month" id="monthFilter"><div class="expenses-table"><table id="expensesTable"><thead><tr><th>Date</th><th>Amount</th><th>Category</th><th>Description</th><th></th></tr></thead><tbody></tbody></table></div></div>
+    </div>
+    <script src="app_offline.js"></script>
+</body>
+</html>
